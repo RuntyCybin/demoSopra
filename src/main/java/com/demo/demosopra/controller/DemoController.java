@@ -17,8 +17,8 @@ public class DemoController {
     @Autowired
     OperationService service;
 
-    @PostMapping("/operacion")
-    public ResponseEntity<OperationResponseDTO> operacionMatematica(
+    @PostMapping("/operation")
+    public ResponseEntity<OperationResponseDTO> opMat(
             @RequestBody OperationRequestDTO operationRequestDTO
     ) throws OperationErrorException {
         return new ResponseEntity<OperationResponseDTO>(
