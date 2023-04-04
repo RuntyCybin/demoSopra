@@ -2,7 +2,7 @@ package com.demo.demosopra.controller;
 
 import com.demo.demosopra.dto.OperationRequestDTO;
 import com.demo.demosopra.dto.OperationResponseDTO;
-import com.demo.demosopra.dto.OperationService;
+import com.demo.demosopra.service.OperationService;
 import com.demo.demosopra.exception.OperationErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

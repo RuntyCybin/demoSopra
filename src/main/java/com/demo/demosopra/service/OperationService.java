@@ -1,5 +1,7 @@
-package com.demo.demosopra.dto;
+package com.demo.demosopra.service;
 
+import com.demo.demosopra.dto.OperationRequestDTO;
+import com.demo.demosopra.dto.OperationResponseDTO;
 import com.demo.demosopra.exception.OperationErrorException;
 import org.springframework.stereotype.Service;
 
