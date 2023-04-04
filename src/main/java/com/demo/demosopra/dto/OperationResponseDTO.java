@@ -1,4 +1,4 @@
-package com.demo.demosopra;
+package com.demo.demosopra.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

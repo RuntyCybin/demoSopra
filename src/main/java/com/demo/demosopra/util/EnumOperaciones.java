@@ -1,4 +1,4 @@
-package com.demo.demosopra;
+package com.demo.demosopra.util;
 
 public enum EnumOperaciones {
 

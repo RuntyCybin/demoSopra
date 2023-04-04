@@ -1,5 +1,6 @@
-package com.demo.demosopra;
+package com.demo.demosopra.dto;
 
+import com.demo.demosopra.util.EnumOperaciones;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,4 +16,5 @@ public class OperationRequestDTO implements Serializable {
 
     private Integer datoA;
     private Integer datoB;
+    private EnumOperaciones operacion;
 }

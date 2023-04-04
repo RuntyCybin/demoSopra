@@ -1,5 +1,9 @@
-package com.demo.demosopra;
+package com.demo.demosopra.controller;
 
+import com.demo.demosopra.dto.OperationRequestDTO;
+import com.demo.demosopra.dto.OperationResponseDTO;
+import com.demo.demosopra.dto.OperationService;
+import com.demo.demosopra.exception.OperationErrorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +20,10 @@ public class DemoController {
     @PostMapping("/operacion")
     public ResponseEntity<OperationResponseDTO> operacionMatematica(
             @RequestBody OperationRequestDTO operationRequestDTO
-    ) {
-        OperationResponseDTO operationResponseDTO = new OperationResponseDTO();
-        return new ResponseEntity<OperationResponseDTO>(operationResponseDTO, HttpStatus.OK);
+    ) throws OperationErrorException {
+        return new ResponseEntity<OperationResponseDTO>(
+                service.operacionMatematica(
+                        operationRequestDTO), HttpStatus.OK);
     }
 
 }
