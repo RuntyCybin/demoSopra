@@ -15,6 +15,7 @@
     <description>Demo project for Sopra Steria</description>
     <properties>
         <java.version>17</java.version>
+        <restAssuredVersion>5.3.0</restAssuredVersion>
     </properties>
     <dependencies>
         <dependency>
@@ -43,7 +44,18 @@
             <systemPath>${basedir}\src\lib\tracer-1.0.0.jar</systemPath>
         </dependency>
 
-
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${restAssuredVersion}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>rest-assured</artifactId>
+                    <groupId>io.rest-assured</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
     </dependencies>
 
