@@ -15,7 +15,7 @@ public class OperationService {
         return switch (dto.getOperacion()) {
             case SUMA -> new OperationResponseDTO(dto.getDatoA() + dto.getDatoB());
             case RESTA -> {
-                if (dto.getDatoB() > dto.getDatoB()) {
+                if (dto.getDatoB() > dto.getDatoA()) {
                     throw new OperationErrorException(MENSAJE_ERROR_RESTA);
                 }
                 yield new OperationResponseDTO(dto.getDatoA() - dto.getDatoB());
