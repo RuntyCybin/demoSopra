@@ -3,13 +3,14 @@ package com.demo.demosopra.service;
 import com.demo.demosopra.dto.OperationRequestDTO;
 import com.demo.demosopra.dto.OperationResponseDTO;
 import com.demo.demosopra.exception.OperationErrorException;
+import com.demo.demosopra.repository.OperationServiceRepo;
 import io.corp.calculator.TracerImpl;
 import org.springframework.stereotype.Service;
 
 import static com.demo.demosopra.util.Constantes.MENSAJE_ERROR_RESTA;
 
 @Service
-public class OperationService {
+public class OperationService implements OperationServiceRepo {
     public OperationResponseDTO operacionMatematica(OperationRequestDTO dto) throws OperationErrorException {
         TracerImpl tracer = new TracerImpl();
 
