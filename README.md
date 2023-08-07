@@ -17,6 +17,8 @@ Notas adicionales
 
 * El entregable debe compilar en una instalación de maven totalmente limpia, debe indicarse en un fichero README tanto los pasos necesarios para generar el jar final como para ejecutarlo (no hace falta mucho detalle).
 
+* He usado el TracerImpl en la capa de servicio instanciando la clase TracerImpl y no con @Autowired del TracerAPI puesto que la clase TracerImpl no tiene el 'implements' del TracerAPI
+
 # Para arrancar el proyecto
 Para arrancar e instalar el proyecto :
 1. Clonar el proyecto usando la URL: https://github.com/RuntyCybin/demoSopra
