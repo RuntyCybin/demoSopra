@@ -1,12 +1,10 @@
 package com.demo.demosopra.service;
 
-import com.demo.demosopra.AppConfiguration;
 import com.demo.demosopra.dto.OperationRequestDTO;
 import com.demo.demosopra.dto.OperationResponseDTO;
 import com.demo.demosopra.exception.OperationErrorException;
 import io.corp.calculator.TracerImpl;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static com.demo.demosopra.util.Constantes.MENSAJE_ERROR_RESTA;
@@ -16,9 +14,9 @@ public class OperationServiceImpl implements OperationService {
 
     private TracerImpl tracer;
 
+    @Autowired
     public OperationServiceImpl() {
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
-        tracer = context.getBean("tracerBean", TracerImpl.class);
+        tracer = new TracerImpl();
     }
 
     public OperationResponseDTO operacionMatematica(OperationRequestDTO dto) throws OperationErrorException {
