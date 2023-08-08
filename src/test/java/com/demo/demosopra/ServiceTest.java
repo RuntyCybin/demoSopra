@@ -3,7 +3,7 @@ package com.demo.demosopra;
 import com.demo.demosopra.dto.OperationRequestDTO;
 import com.demo.demosopra.dto.OperationResponseDTO;
 import com.demo.demosopra.exception.OperationErrorException;
-import com.demo.demosopra.service.OperationService;
+import com.demo.demosopra.service.OperationServiceImpl;
 import com.demo.demosopra.util.EnumOperaciones;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,70 +15,70 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class ServiceTest {
+class ServiceTest {
 
     @Mock
-    private OperationService operationService;
+    private OperationServiceImpl operationServiceImpl;
 
     @InjectMocks
-    private OperationService operationService1;
+    private OperationServiceImpl operationServiceImpl1;
 
     @Test
-    public void operacionSumaSuccess() throws OperationErrorException {
+    void operacionSumaSuccess() throws OperationErrorException {
 
         OperationRequestDTO operationRequestDTO = mock(OperationRequestDTO.class);
 
         OperationResponseDTO operationResponseDTO = new OperationResponseDTO(4);
 
-        lenient().when(operationService.operacionMatematica(operationRequestDTO)).thenReturn(operationResponseDTO);
+        lenient().when(operationServiceImpl.operacionMatematica(operationRequestDTO)).thenReturn(operationResponseDTO);
 
-        OperationResponseDTO resultDTO = operationService1.operacionMatematica(
+        OperationResponseDTO resultDTO = operationServiceImpl1.operacionMatematica(
                 new OperationRequestDTO(1,3,EnumOperaciones.SUMA));
 
-        assertTrue(resultDTO.getResultado() == 4);
+        assertEquals(4, resultDTO.getResultado(), "Unexpected result");
     }
 
     @Test
-    public void operacionSumaFail() throws OperationErrorException {
+    void operacionSumaFail() throws OperationErrorException {
 
         OperationRequestDTO operationRequestDTO = mock(OperationRequestDTO.class);
 
         OperationResponseDTO operationResponseDTO = new OperationResponseDTO(4);
 
-        lenient().when(operationService.operacionMatematica(operationRequestDTO)).thenReturn(operationResponseDTO);
+        lenient().when(operationServiceImpl.operacionMatematica(operationRequestDTO)).thenReturn(operationResponseDTO);
 
-        OperationResponseDTO resultDTO = operationService1.operacionMatematica(
+        OperationResponseDTO resultDTO = operationServiceImpl1.operacionMatematica(
                 new OperationRequestDTO(1,3,EnumOperaciones.SUMA));
 
-        assertFalse(resultDTO.getResultado() == 5);
+        assertNotEquals(5, resultDTO.getResultado(), "Unexpected result");
     }
 
     @Test
-    public void operacionRestaSuccess() throws OperationErrorException {
+    void operacionRestaSuccess() throws OperationErrorException {
 
         OperationRequestDTO operationRequestDTO = mock(OperationRequestDTO.class);
 
         OperationResponseDTO operationResponseDTO = new OperationResponseDTO(4);
 
-        lenient().when(operationService.operacionMatematica(operationRequestDTO)).thenReturn(operationResponseDTO);
+        lenient().when(operationServiceImpl.operacionMatematica(operationRequestDTO)).thenReturn(operationResponseDTO);
 
-        OperationResponseDTO resultDTO = operationService1.operacionMatematica(
+        OperationResponseDTO resultDTO = operationServiceImpl1.operacionMatematica(
                 new OperationRequestDTO(2,1,EnumOperaciones.RESTA));
 
-        assertTrue(resultDTO.getResultado() == 1);
+        assertEquals(1, resultDTO.getResultado(), "Unexpected result");
     }
 
     @Test
-    public void operacionRestaFail() throws OperationErrorException {
+    void operacionRestaFail() throws OperationErrorException {
 
         OperationRequestDTO operationRequestDTO = mock(OperationRequestDTO.class);
 
         OperationResponseDTO operationResponseDTO = new OperationResponseDTO(4);
 
-        lenient().when(operationService.operacionMatematica(operationRequestDTO)).thenReturn(operationResponseDTO);
+        lenient().when(operationServiceImpl.operacionMatematica(operationRequestDTO)).thenReturn(operationResponseDTO);
 
         OperationErrorException resultDTO = assertThrows(OperationErrorException.class, () -> {
-            operationService1.operacionMatematica(
+            operationServiceImpl1.operacionMatematica(
                     new OperationRequestDTO(1,2,EnumOperaciones.RESTA));
         });
 
